@@ -1,0 +1,26 @@
+{
+  "name": "get-eth-price",
+  "version": "0.0.5",
+  "description": "Get the current ETH price in various fiat currencies, BTC or whatever you would like and supported by the API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codervince/get-eth-price.git"
+  },
+  "author": {
+    "name": "codervince <codervince@protonmail.com>"
+  },
+  "keywords": [
+    "ethereum",
+    "cryptocurrency",
+    "eth",
+    "price"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "popsicle": "^9.1.0"
+  }
+}
