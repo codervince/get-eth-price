@@ -21,6 +21,9 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "moment": "^2.18.1",
+    "nsynjs": "0.0.9",
     "popsicle": "^9.1.0"
   }
 }

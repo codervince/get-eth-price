@@ -1,11 +1,14 @@
-const ethPrice = require('./index');
+const {getEthPriceNow,getEthPriceHistorical}= require('./index');
 
-function time(s) {
-    return new Date(s).toISOString().slice(-13, -5);
-}
+//example use
 
-ethPrice()
+getEthPriceNow()
 .then( data => {
-  console.log(time(Date.now()));
+  console.log(data);
+});
+
+//indicate the number of days, default 7
+getEthPriceHistorical(2)
+.then( data => {
   console.log(data);
 });

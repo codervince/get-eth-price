@@ -8,26 +8,52 @@ npm install -S get-eth-price
 
 ## Require/Import + Usage
 ```js
-const ethPrice = require('get-eth-price');
-function time(s) {
-    return new Date(s).toISOString().slice(-13, -5);
-}
-//its a promise- data is an array
-ethPrice()
+const {getEthPriceNow,getEthPriceHistorical}= require('get-eth-price');
+
+
+getEthPriceNow()
 .then( data => {
-  console.log(time(Date.now()));
   console.log(data);
 });
-// default:
-//[ 'BTC: 0.1175',
-//  'USD: 339.71',
-//  'EUR: 301.61',
-//  'GBP: 249.01',
-//  'CHF: 329.59',
-//  'THB: 11074.11',
-//  'AUD: 464.9',
-//  'INR: 22800' ]
+
+//indicate the number of days, default 7
+getEthPriceHistorical(2)
+.then( data => {
+  console.log(data);
+});
+/*
+{ 'Thu Jun 15 2017 06:22:03 GMT+0200 (CEST)': 
+   { ETH: 
+      { BTC: 0.1377,
+        USD: 336.8,
+        EUR: 300.06,
+        AUD: 491.13,
+        CHF: 338.32,
+        CAD: 473.65,
+        GBP: 268.28 } } }
+{ 'Wed Jun 14 2017 06:22:03 GMT+0200 (CEST)': 
+   { ETH: 
+      { BTC: 0.1383,
+        USD: 341.3,
+        EUR: 308.66,
+        AUD: 496.58,
+        CHF: 342.11,
+        CAD: 471.93,
+        GBP: 269.88 } },
+  'Tue Jun 13 2017 06:22:03 GMT+0200 (CEST)': 
+   { ETH: 
+      { BTC: 0.1383,
+        USD: 341.3,
+        EUR: 308.66,
+        AUD: 494.58,
+        CHF: 342.11,
+        CAD: 471.93,
+        GBP: 269.88 } } }
+*/
 ```
+
+## Donations
+email me for an ETH address to donate to
 
 ## License
 MIT
