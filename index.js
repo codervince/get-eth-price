@@ -14,7 +14,7 @@ const getEthPriceNow= toSymbol => {
 	}
 
 	return popsicle.request({
-		method: 'POST',
+		method: 'GET',
 		url: 'https://min-api.cryptocompare.com/data/price',
 
 		query: {
@@ -26,7 +26,7 @@ const getEthPriceNow= toSymbol => {
 		.use(popsicle.plugins.parse(['json']))
 		.then(resp => resp.body)
 		.then(data => {
-			//format  ts : data 
+			//format  ts : data
 			let rtn = {}
 			rtn[ts] = { 'ETH': data};
 			return rtn});
@@ -41,13 +41,13 @@ const getEthPriceHistorical= (n,toSymbol) => {
     } else {
         toSymbol = defaultCurrencies;
     }
-    
+
 	return Promise.all(Array.from({length:days}).map((unused, i) => {
-        
+
 		let ts =  new Date(new Date().getTime() - (24*(i+1) * 60 * 60 * 1000));
-        
+
 		return popsicle.request({
-           method: 'POST',
+           method: 'GET',
            url: 'https://min-api.cryptocompare.com/data/pricehistorical',
 
            query: {
